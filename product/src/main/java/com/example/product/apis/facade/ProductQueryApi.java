@@ -25,7 +25,7 @@ public class ProductQueryApi {
 	 * @return
 	 */
 	@ApiOperation(value = "Get Product API", notes = "Get Product API")
-	@GetMapping(value = "/prodcut/{id}", produces = "application/json;charset=utf-8")
+	@GetMapping(value = "/product/{id}", produces = "application/json;charset=utf-8")
 	public ResponseEntity<GenericResponseDTO> getProduct(@PathVariable Long id) {
 		return new ResponseEntity<>(
 				GenericResponseDTO.builder().code("200").messamge("OK").data(productDAOImpl.findById(id)).build(),
@@ -38,7 +38,7 @@ public class ProductQueryApi {
 	 * @return
 	 */
 	@ApiOperation(value = "Get All Product API", notes = "Get All Product API")
-	@GetMapping(value = "/prodcut", produces = "application/json;charset=utf-8")
+	@GetMapping(value = "/product", produces = "application/json;charset=utf-8")
 	public ResponseEntity<GenericResponseDTO> getAllProduct() {
 		return new ResponseEntity<>(
 				GenericResponseDTO.builder().code("200").messamge("OK").data(productDAOImpl.findAll()).build(),

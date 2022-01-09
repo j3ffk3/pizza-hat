@@ -41,7 +41,7 @@ public class ProductCommandApi {
 	 * @return
 	 */
 	@ApiOperation(value = "Create Product API", notes = "Create Product API")
-	@PostMapping(value = "/prodcut", produces = "application/json;charset=utf-8")
+	@PostMapping(value = "/product", produces = "application/json;charset=utf-8")
 	public ResponseEntity<GenericResponseDTO> createProduct(@RequestBody ProductRequestDTO productRequestDTO) {
 		createProductApplicationService.execute(productConverter.dtoToDo(productRequestDTO));
 		return new ResponseEntity<>(GenericResponseDTO.builder().code("200").messamge("OK").build(), HttpStatus.OK);
@@ -54,7 +54,7 @@ public class ProductCommandApi {
 	 * @return
 	 */
 	@ApiOperation(value = "Update Product API", notes = "Update Product API")
-	@PutMapping(value = "/prodcut/{id}", produces = "application/json;charset=utf-8")
+	@PutMapping(value = "/product/{id}", produces = "application/json;charset=utf-8")
 	public ResponseEntity<GenericResponseDTO> updateProduct(@PathVariable Long id,
 			@RequestBody ProductRequestDTO productRequestDTO) {
 		Product product = productConverter.dtoToDo(productRequestDTO);
@@ -70,7 +70,7 @@ public class ProductCommandApi {
 	 * @return
 	 */
 	@ApiOperation(value = "Delete Product API", notes = "Delete Product API")
-	@DeleteMapping(value = "/prodcut/{id}", produces = "application/json;charset=utf-8")
+	@DeleteMapping(value = "/product/{id}", produces = "application/json;charset=utf-8")
 	public ResponseEntity<GenericResponseDTO> deleteProduct(@PathVariable Long id) {
 		deleteProductApplicationService.execute(productConverter.pathVarToDo(id));
 		return new ResponseEntity<>(GenericResponseDTO.builder().code("200").messamge("OK").build(), HttpStatus.OK);
